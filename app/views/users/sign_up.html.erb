@@ -1,0 +1,11 @@
+<h1>會員註冊</h1>
+
+<form method="post" action="/account_verify">
+    <input type="text"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+姓名 <input type="text" name="username"> 
+密碼 <input type="password" name="password"> 
+密碼確認 <input type="password" name="password_confirm"> 
+  <input type="submit" value="註冊">
+</form> 
