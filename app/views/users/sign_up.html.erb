@@ -3,12 +3,12 @@
 <%= form_for(@user, url: '/account_verify') do |form| %>
   <div class="fields">
     <%= form.label :email, 'Email' %>
-    <%= form.email_field :email %>
+    <%= form.email_field :email, placeholder: '請填入信箱' %>
   </div>
   
   <div class="fields">
     <%= form.label :username, 'Name' %>
-    <%= form.text_field :username %>
+    <%= form.text_field :username, placeholder: '請填入姓名'  %>
   </div>
 
   <div class="fields">
