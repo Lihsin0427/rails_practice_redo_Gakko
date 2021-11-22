@@ -1,1 +1,7 @@
 <h1>頑張ります</h1>
+
+<% if user_signed_in? %>
+  已登入 <a href="/sign_out">登出</a>
+<% else %>
+  未登入 <a href="/sign_in">登入</a>
+<% end %>
