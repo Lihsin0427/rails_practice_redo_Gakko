@@ -1,0 +1,27 @@
+<h1>新增課程</h1>
+
+<%= form_with(model: @course) do |form| %>
+  <div class="fields">
+    <%= form.label :name, '名稱' %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="fields">
+    <%= form.label :price, '價錢' %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div class="fields">
+    <%= form.label :intro, 'intro' %>
+    <%= form.text_area :intro %>
+  </div>
+
+  <div class="fields">
+    <%= form.label :hour, '時數' %>
+    <%= form.number_field :hour %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit '新增' %>
+  </div>
+<% end %>

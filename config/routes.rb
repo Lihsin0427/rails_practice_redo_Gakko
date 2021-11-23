@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :courses
+  
   get'/', to:'pages#index'
 
   get'/sign_up', to:'users#sign_up'
