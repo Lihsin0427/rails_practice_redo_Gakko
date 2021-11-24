@@ -28,6 +28,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def sign_out
+    session[:welcome] = nil
+    redirect_to courses_path, notice: '已登出'
+  end
+
   private
   def users_params
     params.require(:user).permit(:username, :password, :email)
