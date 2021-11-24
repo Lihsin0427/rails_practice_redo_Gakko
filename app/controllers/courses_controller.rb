@@ -1,10 +1,11 @@
 class CoursesController < ApplicationController
+  before_action :set_course, only: [:show, :edit, :update, :destroy]
+
   def index
     @courses = Course.all
   end
 
   def show
-    @course = Course.find_by(id:params[:id])
   end
 
   def new
@@ -22,11 +23,9 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @course = Course.find_by(id:params[:id])
   end
 
   def update
-    @course = Course.find_by(id:params[:id])
 
     if @course.update(course_params)
       redirect_to courses_path
@@ -36,7 +35,6 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    @course = Course.find_by(id:params[:id])
     @course.destroy
 
     redirect_to courses_path
@@ -44,6 +42,10 @@ class CoursesController < ApplicationController
 
 
   private
+  def set_course
+    @course = Course.find_by(id:params[:id])
+  end
+
   def course_params
     params.require(:course).permit(:name, :price, :intro, :hour)
   end
