@@ -6,7 +6,7 @@ class User < ApplicationRecord
   format: { with:/\A[^@\s]+@([^@\s]+.)+[^@\s]+\z/ }
   # ref https://stackoverflow.com/questions/4776907/what-is-the-best-easy-way-to-validate-an-email-address-in-ruby
   
-  has_one :course
+  has_many :courses
   
   before_create :encrypt_password
 
