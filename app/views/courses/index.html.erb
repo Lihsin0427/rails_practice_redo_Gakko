@@ -12,7 +12,8 @@
   <td><%= link_to course.name, course_path(course.id) %></td>
   <td><%= course.price %></td>
   <td><%= course.hour %></td>
-  <td>Action</td>
+  <td><%= link_to 'Update', edit_course_path(course.id) %></td>
+
 </tr>
 <% end %>
 </table>
