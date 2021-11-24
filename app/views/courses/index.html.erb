@@ -1,3 +1,20 @@
-<h1>新增課程</h1>
+<h1>課程列表</h1>
 
 <%= link_to "新增課程", new_course_path %>
+
+<table>
+<tr>
+  <td>名稱</td>
+  <td>價錢</td>
+  <td>時數</td>
+  <td>Action</td>
+</tr>
+<% @courses.each do |course| %>
+<tr>
+  <td><%= course.name %></td>
+  <td><%= course.price %></td>
+  <td><%= course.hour %></td>
+  <td>Action</td>
+</tr>
+<% end %>
+</table>
