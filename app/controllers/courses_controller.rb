@@ -3,6 +3,10 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
+  def show
+    @course = Course.find_by(id:params[:id])
+  end
+
   def new
     @course = Course.new
   end
