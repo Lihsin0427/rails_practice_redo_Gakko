@@ -13,7 +13,7 @@
   <td><%= course.price %></td>
   <td><%= course.hour %></td>
   <td><%= link_to 'Update', edit_course_path(course.id) %></td>
-
+  <td><%= link_to 'Delete', course_path(course.id), method: 'delete', data: {confirm:'資料將被刪除。Are you sure!?'} %></td>
 </tr>
 <% end %>
 </table>
