@@ -16,7 +16,7 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
 
     if @course.save
-      redirect_to courses_path
+      redirect_to courses_path, notice: "課程新增成功!"
     else
       render :new
     end
@@ -28,7 +28,7 @@ class CoursesController < ApplicationController
   def update
 
     if @course.update(course_params)
-      redirect_to courses_path
+      redirect_to courses_path, notice: "課程更新成功!"
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class CoursesController < ApplicationController
   def destroy
     @course.destroy
 
-    redirect_to courses_path
+    redirect_to courses_path, notice: "課程已刪除!"
   end
 
 
