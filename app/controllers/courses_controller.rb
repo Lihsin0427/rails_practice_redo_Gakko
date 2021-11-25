@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:edit, :update, :destroy]
+  
   before_action :require_login, except: [:index, :show]
-
+  before_action :set_course, only: [:edit, :update, :destroy]
 
   def index
     @courses = Course.all
