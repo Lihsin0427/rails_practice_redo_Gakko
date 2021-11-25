@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:edit, :update, :destroy]
   before_action :require_login, except: [:index, :show]
 
   def index
@@ -7,6 +7,7 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @course = Course.find_by(id:params[:id])
   end
 
   def new
@@ -44,7 +45,11 @@ class CoursesController < ApplicationController
 
   private
   def set_course
-    @course = Course.find_by(id:params[:id])
+    begin
+      @course = current_user.courses.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      render file: 'public/404.html', layout: false, status: 404
+    end
   end
 
   def require_login 
