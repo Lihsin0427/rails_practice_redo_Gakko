@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, except: [:index, :show]
 
   def index
     @courses = Course.all
@@ -13,7 +14,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = Course.new(course_params)
+    @course = current_user.courses.build(course_params)
 
     if @course.save
       redirect_to courses_path, notice: "課程新增成功!"
@@ -44,6 +45,10 @@ class CoursesController < ApplicationController
   private
   def set_course
     @course = Course.find_by(id:params[:id])
+  end
+
+  def require_login 
+    redirect_to sign_in_path, notice: '請先登入會員' unless user_signed_in?
   end
 
   def course_params
