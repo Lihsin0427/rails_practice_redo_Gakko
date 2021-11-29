@@ -9,9 +9,20 @@
 </ul>
 
 <%= form_for(@review, url:course_reviews_path(@course)) do |form| %>
+
+  <div class="fields">
+    <%= form.label :rating %>
+    <%= form.select :rating, [1, 2, 3, 4, 5], include_blank: true %>
+  </div>
+
   <div class="fields">
     <%= form.label :title %>
     <%= form.text_field :title %>
+  </div>
+
+  <div class="fields">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
   </div>
   
     <%= form.submit '送出' %>
