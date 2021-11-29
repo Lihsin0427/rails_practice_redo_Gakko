@@ -1,13 +1,8 @@
 var reviewContainer = document.querySelector('.review-container')
 
 var el = document.createElement('div')
-var reviewContent = `<section class="review">
-星數：<%= "★"*@review.rating %><%= "☆"*(5-@review.rating) %>
-<header><%= @review.title %></header>
-<article>
-  <%= @review.content %>
-</article>
-</section>`
+var reviewContent = `<%= render "review", review: @review %>`
+
 
 el.innerHTML = reviewContent
 

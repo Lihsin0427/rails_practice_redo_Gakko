@@ -31,16 +31,8 @@
     <h2>評論</h2>
   <div class="review-container">
 
-    <% @reviews.each do |review|%>
-    <section class="review">
-      星數：<%= "★" * review.rating %><%= "☆" * (5 - review.rating) %>
-      <header><%= review.title %></header>
-      <article>
-        <%= review.content %>
-      </article>
-    </section>
-    <% end %>
-
+    <%= render partial: 'reviews/review', collection: @reviews %>
+  
   </div>
 
 <% else %>
