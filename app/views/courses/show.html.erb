@@ -8,7 +8,7 @@
     <li>總時數：<%= @course.hour %>小時</li>
   </ul>
 
-  <%= form_for(@review, url:course_reviews_path(@course)) do |form| %>
+  <%= form_for(@review, url:course_reviews_path(@course),remote: true) do |form| %>
 
     <div class="fields">
       <%= form.label :rating %>
@@ -27,17 +27,19 @@
     
       <%= form.submit '送出' %>
   <% end %>
-  
-  <h2>評論</h2>
-  <% @reviews.each do |review|%>
-  <section class="review">
-    星數：<%= "★"*review.rating %><%= "☆"*(5-review.rating) %>
-    <header><%= review.title %></header>
-    <article>
-      <%= review.content %>
-    </article>
-  </section>
-  <% end %>
+
+    <h2>評論</h2>
+  <div class="review-container">
+    <% @reviews.each do |review|%>
+    <section class="review">
+      星數：<%= "★"*review.rating %><%= "☆"*(5-review.rating) %>
+      <header><%= review.title %></header>
+      <article>
+        <%= review.content %>
+      </article>
+    </section>
+    <% end %>
+  </div>
 
 <% else %>
 
