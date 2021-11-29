@@ -7,3 +7,5 @@ var reviewContent = `<%= render "review", review: @review %>`
 el.innerHTML = reviewContent
 
 reviewContainer.insertAdjacentElement("afterbegin", el.firstChild)
+
+document.querySelector('#new_review').reset()
