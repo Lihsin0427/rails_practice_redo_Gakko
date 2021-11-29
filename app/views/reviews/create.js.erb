@@ -2,13 +2,13 @@ var reviewContainer = document.querySelector('.review-container')
 
 var el = document.createElement('div')
 var reviewContent = `<section class="review">
-星數：<%= "★"*review.rating %><%= "☆"*(5-review.rating) %>
-<header><%= review.title %></header>
+星數：<%= "★"*@review.rating %><%= "☆"*(5-@review.rating) %>
+<header><%= @review.title %></header>
 <article>
-  <%= review.content %>
+  <%= @review.content %>
 </article>
 </section>`
 
 el.innerHTML = reviewContent
 
-reviewContainer.insertAdjacentHTML(afterbegin, el.firstChild)
+reviewContainer.insertAdjacentElement("afterbegin", el.firstChild)
