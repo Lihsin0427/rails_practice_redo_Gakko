@@ -1,33 +1,43 @@
 <% if @course %>
 
-<h1><%= @course.name %></h1>
+  <h1><%= @course.name %></h1>
 
-<ul>
-  <li>課程售價：<%= @course.price %>元</li>
-  <li>課程介紹：<%= @course.intro %></li>
-  <li>總時數：<%= @course.hour %>小時</li>
-</ul>
+  <ul>
+    <li>課程售價：<%= @course.price %>元</li>
+    <li>課程介紹：<%= @course.intro %></li>
+    <li>總時數：<%= @course.hour %>小時</li>
+  </ul>
 
-<%= form_for(@review, url:course_reviews_path(@course)) do |form| %>
+  <%= form_for(@review, url:course_reviews_path(@course)) do |form| %>
 
-  <div class="fields">
-    <%= form.label :rating %>
-    <%= form.select :rating, [1, 2, 3, 4, 5], include_blank: true %>
-  </div>
+    <div class="fields">
+      <%= form.label :rating %>
+      <%= form.select :rating, [1, 2, 3, 4, 5], include_blank: true %>
+    </div>
 
-  <div class="fields">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+    <div class="fields">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
 
-  <div class="fields">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
+    <div class="fields">
+      <%= form.label :content %>
+      <%= form.text_area :content %>
+    </div>
+    
+      <%= form.submit '送出' %>
+  <% end %>
   
-    <%= form.submit '送出' %>
-<% end %>
-
+  <h2>評論</h2>
+  <% @reviews.each do |review|%>
+  <section class="review">
+    星數：<%= "★"*review.rating %><%= "☆"*(5-review.rating) %>
+    <header><%= review.title %></header>
+    <article>
+      <%= review.content %>
+    </article>
+  </section>
+  <% end %>
 
 <% else %>
 
