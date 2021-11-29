@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find_by(id:params[:id])
+    @review = Review.new
   end
 
   def new
