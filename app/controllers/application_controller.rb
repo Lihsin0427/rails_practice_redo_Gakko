@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  include UsersHelper
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   helper_method :user_signed_in?, :current_user

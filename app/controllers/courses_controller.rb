@@ -1,5 +1,4 @@
 class CoursesController < ApplicationController
-  
   before_action :authenticate!, except: [:index, :show]
   before_action :set_course, only: [:edit, :update, :destroy]
 
@@ -48,7 +47,7 @@ class CoursesController < ApplicationController
 
   private
   def set_course
-      @course = current_user.courses.find(params[:id])
+    @course = current_user.courses.find(params[:id])
   end
 
   def course_params

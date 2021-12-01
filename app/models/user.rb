@@ -9,7 +9,9 @@ class User < ApplicationRecord
   has_many :courses
   
   has_many :favor_courses
+  # 建立關聯
   has_many :favorite_courses, through: :favor_courses, source: :course
+  # join table
 
 
   before_create :encrypt_password
