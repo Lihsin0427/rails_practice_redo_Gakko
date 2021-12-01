@@ -6,4 +6,5 @@ class Course < ApplicationRecord
   
   belongs_to :user
   has_many :reviews
+  has_many :users, through: :favor_courses
 end

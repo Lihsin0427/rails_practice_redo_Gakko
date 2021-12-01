@@ -8,6 +8,10 @@ class User < ApplicationRecord
   
   has_many :courses
   
+  has_many :favor_courses
+  has_many :favorite_courses, through: :favor_courses, source: :course
+
+
   before_create :encrypt_password
 
   def self.login(user_info)
