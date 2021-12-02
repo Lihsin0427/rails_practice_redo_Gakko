@@ -1,16 +1,21 @@
-import axios from "axios"
+import httpClient from "lib/http/client"
 
 document.addEventListener("turbolinks:load", () => {
+
   const likeBtn = document.querySelector("#like-btn")
 
   if (likeBtn) {
     likeBtn.addEventListener("click", () => {
-      axios.get("https://randomuser.me/api/?results=5").then(({ data }) => {
-        data.results.forEach((u) => {
-          console.log(u.email)
-        })
-        likeBtn.classList.add("favorited")
+      const courseID = likeBtn.dataset.id
+
+      httpClient.post(`/api/v1/courses/${courseID}/like`).then(({ data }) => {
+        if (data.result === "like"){
+          likeBtn.classList.add("favorited")
+        } else {
+          likeBtn.classList.remove("favorited")
+        }
       })
     })
   }
 })
+

@@ -1,7 +1,8 @@
 <% if @course %>
 
   <h1><%= @course.name %>
-  <button id="like-btn">like!</button>
+  <button id="like-btn" data-id="<%= @course.id %>">Like!</button>
+
   </h1>
 
   <ul>

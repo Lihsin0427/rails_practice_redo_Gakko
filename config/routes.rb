@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+  namespace :api do
+    namespace :v1 do
+      resources :courses, only: []do
+        member do
+    # /api/v1/courses/:id/like
+        post :like
+        end
+      end
+    end
+  end
+
   resources :courses do
     resources :reviews, only: [:create]
   end
