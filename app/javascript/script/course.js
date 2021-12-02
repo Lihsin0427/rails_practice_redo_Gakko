@@ -9,6 +9,7 @@ document.addEventListener("turbolinks:load", () => {
       const courseID = likeBtn.dataset.id
 
       httpClient.post(`/api/v1/courses/${courseID}/like`).then(({ data }) => {
+        console.log(data)
         if (data.result === "like"){
           likeBtn.classList.add("favorited")
         } else {
