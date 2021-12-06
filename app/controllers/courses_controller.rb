@@ -44,6 +44,10 @@ class CoursesController < ApplicationController
     redirect_to courses_path, notice: "課程已刪除!"
   end
 
+  def buy
+    @order = Order.new
+  end
+
 
   private
   def set_course

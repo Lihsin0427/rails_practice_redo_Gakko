@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_01_074939) do
+ActiveRecord::Schema.define(version: 2021_12_06_063410) do
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,21 @@ ActiveRecord::Schema.define(version: 2021_12_01_074939) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_favor_courses_on_course_id"
     t.index ["user_id"], name: "index_favor_courses_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "serial"
+    t.integer "user_id", null: false
+    t.integer "course_id", null: false
+    t.integer "amount"
+    t.string "recipient"
+    t.string "address"
+    t.string "state"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_orders_on_course_id"
+    t.index ["serial"], name: "index_orders_on_serial", unique: true
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -55,5 +70,7 @@ ActiveRecord::Schema.define(version: 2021_12_01_074939) do
 
   add_foreign_key "favor_courses", "courses"
   add_foreign_key "favor_courses", "users"
+  add_foreign_key "orders", "courses"
+  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "users"
 end

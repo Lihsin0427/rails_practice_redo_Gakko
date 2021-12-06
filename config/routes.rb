@@ -11,7 +11,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :orders, only: [:create] 
+
+  # course/id/buy
   resources :courses do
+    member do
+    get :buy
+    end
     resources :reviews, only: [:create]
   end
   resources :reviews, only: [:destroy]

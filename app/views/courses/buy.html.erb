@@ -1,0 +1,22 @@
+<h1>購買課程</h1>
+
+<%= form_for(@order) do |form| %>
+  <div class="fields">
+    <%= form.label :recipient, '收件人' %>
+    <%= form.text_field :recipient %>
+  </div>
+
+  <div class="fields">
+    <%= form.label :address, '地址' %>
+    <%= form.text_field :address %>
+  </div>
+  <div class="actions">
+    <%= form.submit '送出訂單' %>
+  </div>
+<% end %>
+
+
+
+
+  
+
