@@ -3,11 +3,13 @@
   <h1 data-controller="favorite" 
       data-favorite-liked-value="<% user_signed_in? && current_user.favorite_courses.include?(@course) %>"
       data-favorite-course-id-value="<%= @course.id %>"
-      ><%= @course.name %>
+      >
+    
+    <%= @course.name %>
 
     <button data-favorite-target="btn"           
-            data-action="click->favorite#like"  
-            >Like!
+            data-action="click->favorite#like">
+            Like!
     </button>
 
   </h1>

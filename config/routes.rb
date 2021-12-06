@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: [:create] 
 
   # course/id/buy
   resources :courses do
@@ -19,6 +18,7 @@ Rails.application.routes.draw do
     get :buy
     end
     resources :reviews, only: [:create]
+    resources :orders, only: [:create]  # POST /courses/2/orders
   end
   resources :reviews, only: [:destroy]
   

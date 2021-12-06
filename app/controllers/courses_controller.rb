@@ -45,6 +45,7 @@ class CoursesController < ApplicationController
   end
 
   def buy
+    @course = Course.find_by(id:params[:id])
     @order = Order.new
   end
 

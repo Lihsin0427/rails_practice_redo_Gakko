@@ -1,6 +1,6 @@
 <h1>購買課程</h1>
 
-<%= form_for(@order) do |form| %>
+<%= form_for(@order, url: course_orders_path(@course)) do |form| %>
   <div class="fields">
     <%= form.label :recipient, '收件人' %>
     <%= form.text_field :recipient %>
@@ -19,4 +19,5 @@
 
 
   
+
 
