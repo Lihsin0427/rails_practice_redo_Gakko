@@ -18,6 +18,7 @@ export default class extends Controller {
   }
 
   connect(){
+    console.log(this.likedValue)
     if (this.likedValue){
     this.btnTarget.classList.add("favorited")
     }

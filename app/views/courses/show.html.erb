@@ -1,7 +1,7 @@
 <% if @course %>
 
   <h1 data-controller="favorite" 
-      data-favorite-liked-value="<% user_signed_in? && current_user.favorite_courses.include?(@course) %>"
+      data-favorite-liked-value="<%= user_signed_in? && current_user.favorite_courses.include?(@course) %>"
       data-favorite-course-id-value="<%= @course.id %>"
       >
     
