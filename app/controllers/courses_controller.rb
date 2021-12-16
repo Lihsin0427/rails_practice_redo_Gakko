@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:edit, :update, :destroy]
 
   def index
-    @courses = Course.all
+    @courses = Course.includes(:user) 
   end
 
   def show
@@ -42,6 +42,20 @@ class CoursesController < ApplicationController
     @course.destroy
 
     redirect_to courses_path, notice: "課程已刪除!"
+  end
+
+  def buy
+    @course = Course.find_by(id:params[:id])
+    @order = Order.new
+
+
+    gateway = Braintree::Gateway.new(
+      environment: :sandbox,
+      merchant_id: ENV['braintree_merchant_id'],
+      public_key: ENV['braintree_public_key'],
+      private_key: ENV['braintree_private_key']
+    )
+    @token = gateway.client_token.generate
   end
 
 

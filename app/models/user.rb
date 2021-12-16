@@ -7,6 +7,7 @@ class User < ApplicationRecord
   # ref https://stackoverflow.com/questions/4776907/what-is-the-best-easy-way-to-validate-an-email-address-in-ruby
   
   has_many :courses
+  has_many :orders
   
   has_many :favor_courses
   # 建立關聯
