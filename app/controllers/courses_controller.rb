@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:edit, :update, :destroy]
 
   def index
-    @courses = Course.all
+    @courses = Course.includes(:user) 
   end
 
   def show

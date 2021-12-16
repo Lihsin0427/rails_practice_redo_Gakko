@@ -3,13 +3,17 @@
 <table>
 <tr>
   <td>名稱</td>
+  <td>作者</td>
+  <td>評論</td>
   <td>價錢</td>
   <td>時數</td>
   <td>Action</td>
 </tr>
 <% @courses.each do |course| %>
 <tr>
-  <td><%= link_to course.name, course_path(course.id) %></td>
+  <td> <%= link_to course.name, course_path(course.id) %> </td>
+  <td><%= course.user&.username %></td>
+  <td><%= course.reviews.size  %></td>
   <td><%= course.price %></td>
   <td><%= course.hour %></td>
   <td><%= link_to 'Update', edit_course_path(course.id) %></td>
